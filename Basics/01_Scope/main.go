@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"GoLang/Basics/01_Scope/vis"
+	"fmt"
+)
 
 //a has package level scope
 var a = 0
@@ -16,4 +19,8 @@ func main() {
 	fmt.Println(increment())
 	fmt.Println(increment())
 	fmt.Println(a)
+
+	//go mod init and then import the package to use the func & variables of it
+	fmt.Println(vis.Name, vis.Location)
+	vis.Printer(5)
 }
