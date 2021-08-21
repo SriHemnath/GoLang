@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var b int
+	var b int // TODO
 	fmt.Println("Enter limit: ")
 	fmt.Scan(&b)
 	for i := 1; i <= b; i++ {
