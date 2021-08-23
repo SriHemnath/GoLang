@@ -17,4 +17,14 @@ func main() {
 		return n > 1
 	})
 	fmt.Println(result)
+
+	even := filter([]int{1, 2, 3, 4, 5}, func(n int) bool {
+		return n%2 == 0
+	})
+	fmt.Println(even)
+
+	odd := filter([]int{1, 2, 3, 4, 5}, func(n int) bool {
+		return n%2 != 0
+	})
+	fmt.Println(odd)
 }
