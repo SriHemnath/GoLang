@@ -33,4 +33,9 @@ func main() {
 	fmt.Println(nSlice)
 	fmt.Printf("nSlice \tLen: %v \tCap: %v\n", len(nSlice), cap(nSlice))
 
+	var someValue interface{} = 2
+	someValue = 2.0
+	someValue = "Hemnath"
+	fmt.Println(someValue)
+	fmt.Println(reflect.TypeOf(someValue))
 }

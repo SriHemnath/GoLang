@@ -1,5 +1,9 @@
 package main
 
+// Polymorphism - the ability of an object to take many forms
+// A value can be of more than one type.
+// In an interface, a variable of an interface type can contain any value which implements the interface.
+
 import (
 	"fmt"
 )
