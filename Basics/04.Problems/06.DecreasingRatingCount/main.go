@@ -4,8 +4,11 @@ import "fmt"
 
 func main() {
 	ratings := []int{2, 1, 3}
-	fmt.Println(countDecreasingRating(ratings))
-	fmt.Println(countDecreasingRating([]int{4, 3, 5, 4, 3}))
+	fmt.Println(countDecreasingRating(ratings))              //4
+	fmt.Println(countDecreasingRating([]int{4, 3, 5, 4, 3})) //9
+	fmt.Println(countDecreasingRating([]int{3, 2, 1}))       //6
+	fmt.Println(countDecreasingRating([]int{1}))             //1
+	fmt.Println(countDecreasingRating([]int{9, 8, 7, 6, 5})) //15
 }
 
 func countDecreasingRating(ratings []int) int {
