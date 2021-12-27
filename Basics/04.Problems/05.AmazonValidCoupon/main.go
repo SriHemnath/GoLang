@@ -39,6 +39,8 @@ func main() {
 	fmt.Println(isValid("xbbx"))
 	fmt.Println(isValid("bbccdd"))
 	fmt.Println(isValid("xyffyxdd"))
+
+	//below are invalid
 	fmt.Println(isValid("xyx"))
 	fmt.Println(isValid("bbb"))
 	fmt.Println(isValid("abc"))
@@ -47,7 +49,7 @@ func main() {
 func isValid(s string) bool {
 	var stack Stack
 	for i := 0; i < len(s); i++ {
-		c := fmt.Sprintf("%c\n", s[i])
+		c := fmt.Sprintf("%c", s[i])
 		if stack.isEmpty() {
 			stack.Push(c)
 		} else if stack.Peek() == c {
