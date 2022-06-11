@@ -38,4 +38,15 @@ func main() {
 	someValue = "Hemnath"
 	fmt.Println(someValue)
 	fmt.Println(reflect.TypeOf(someValue))
+
+	//reverse the order of slice
+	x := []int{5, 3, 1, 4, 2}
+	reverse(x)
+	fmt.Println(x)
+}
+
+func reverse(x []int) {
+	for a, b := 0, len(x)-1; a < b; a, b = a+1, b-1 {
+		x[a], x[b] = x[b], x[a]
+	}
 }
