@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -12,30 +13,30 @@ func main() {
 	wg.Add(1)
 
 	go func() {
+		defer wg.Done()
 		for {
-			fmt.Println("Waiting outside...")
+			fmt.Println("Outside select")
 			select {
 			case <-quit:
-				defer wg.Done()
 				return
 			default:
-				// …
-				fmt.Println("Waiting...")
+				fmt.Println("Inside default.  Waiting...")
 			}
 		}
 	}()
 	// …
+	time.Sleep(5 * time.Second)
 	quit <- true //commenting this will put go routine in infinite waiting loop
 	wg.Wait()
 	close(quit)
 	next := incrementor() // next is a function returned by incrementor
 	next1 := incrementor()
-	fmt.Println(next()) // prints 1
-	fmt.Println(next()) // prints 2
-	fmt.Println(next()) // prints 3
-	fmt.Println(next1())
-	fmt.Println(next1())
-	fmt.Println(next())
+	fmt.Println(next())  // prints 1
+	fmt.Println(next())  // prints 2
+	fmt.Println(next())  // prints 3
+	fmt.Println(next1()) // prints 1
+	fmt.Println(next1()) //print 2
+	fmt.Println(next())  //print 4
 }
 
 //function closure
