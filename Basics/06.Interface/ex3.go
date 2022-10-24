@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type check struct {
 }
@@ -10,9 +12,11 @@ func main() {
 	var j interface{} //j=nil
 	var k int         //k=0
 	var l *check      //j=nil
-	p := new(int)     //p is reference and value inside p is nil
+	var ll check
+	var m = l
+	p := new(int) //p is reference and value inside p is nil
 	//*p = 1234
-	println("i:")
+	println("i: ", i, i == nil)
 	do(i)
 	println("j:")
 	do(j)
@@ -20,10 +24,17 @@ func main() {
 	do(k)
 	println("l:")
 	do(l)
+	println("ll:")
+	do(ll)
 	println("p:")
 	do(p)
-	println(i, j, k, l, p)
-	fmt.Println(i, j, k, l, p)
+	println("m:")
+	do(m)
+	println(i, j, k, l, p, m)
+	fmt.Println(i, j, k, l, ll, p, m)
+	// fmt.Println(unsafe.Sizeof(ll))
+	// fmt.Println(unsafe.Sizeof(l))
+	// fmt.Println(unsafe.Sizeof(j))
 }
 
 //whenever interface receives a value, it will have reference of that value as interface{} is a reference type.

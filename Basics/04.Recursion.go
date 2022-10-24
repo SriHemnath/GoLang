@@ -18,7 +18,7 @@ func fibR(a, b, upTo int, ch chan<- int) {
 	c := a + b
 	if c >= upTo {
 		ch <- c
-		fmt.Println("Returning conrol to main")
+		fmt.Println("Returning control to main")
 		return
 	}
 	go fibR(b, c, upTo, ch)

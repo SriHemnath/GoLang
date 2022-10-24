@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	var y int
 	for y, z := 1, 1; y < 10; y++ {
 		_ = y
@@ -36,6 +36,17 @@ func main() {
 	fmt.Println(arr2, elem)
 	elem_2 := copy(arr3, arr[2:5])
 	fmt.Println(arr3, elem_2)
+	arr2 = append(arr2, arr...) //append function to copy array
+	fmt.Println(arr2)
+	arr2[0] = 66 //will not have reference of original array
+	fmt.Println(arr, arr2)
+
+	aa := make([]int, 1, 1)
+	a[0] = 1
+	a[1] = 2
+	a[2] = 3
+	fmt.Println(cap(aa))
+
 }
 
 //func f1() { //stack

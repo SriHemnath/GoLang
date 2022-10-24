@@ -23,4 +23,10 @@ func main() {
 	//go mod init and then import the package to use the func & variables of it
 	fmt.Println(vis.Name, vis.Location)
 	vis.Printer(5)
+
+	emp := vis.NewEmployee()
+	fmt.Println(emp)
+	salary := emp.GetSalary()
+	fmt.Println(salary)
+
 }

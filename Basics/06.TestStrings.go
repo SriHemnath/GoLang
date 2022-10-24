@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"strings"
 )
 
@@ -9,6 +10,8 @@ func main() {
 	s1 := "Hemnath"
 	s2 := "Hemnath"
 	s3 := &s1 //gets memory loc of s1 and assigns to s3. Access value in s3 by using `*`
+	s4 := s1[:3]
+	fmt.Println(s4, s4[2])
 
 	println("Address of s1 ", &s1)
 	println("Address of s2 ", &s2)
@@ -27,4 +30,32 @@ func main() {
 
 	//compare case-insensitive
 	fmt.Println("Case in-sensitive comparision of s1 with hemnath", strings.EqualFold(s1, "hemnath"))
+
+	fmt.Println("===============")
+	name := "HemnatH"
+	visited := make(map[int32]bool, len(name))
+	for i, v := range name {
+		fmt.Println(i, v)
+		if visited[v] == true {
+			fmt.Println("dups")
+			fmt.Println(string(v))
+		} else {
+			visited[v] = true
+		}
+	}
+	fmt.Println("===============")
+	for i := range name {
+		fmt.Println(string(name[i]))
+		kk := name[i]
+		fmt.Println(reflect.TypeOf(kk))
+	}
+	for v1, v2 := range visited {
+		println(string(v1), v2)
+	}
+
+	m := make(map[int]int)
+	for i := 0; i < 10; i++ {
+		m[i] = i
+	}
+
 }
