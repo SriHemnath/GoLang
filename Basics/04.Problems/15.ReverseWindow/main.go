@@ -10,15 +10,13 @@ func main() {
 	sl := []int{1, 2, 3, 4, 5, 6, 7}
 	window := 3
 	fmt.Println(reverseWindow(window, sl))
+	fmt.Println(reverseWindow(4, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}))
 }
 
 func reverseWindow(w int, value []int) []int {
 	result := make([]int, 0)
 	lastIndex := 0
-	for i := 0; i < len(value); i = i + w {
-		if i+w > len(value) {
-			break
-		}
+	for i := 0; i+w < len(value); i = i + w {
 		sl := value[i : i+w]
 		reverse(sl)
 		result = append(result, sl...)
