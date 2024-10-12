@@ -22,7 +22,9 @@ func main() {
 	}
 
 	sort.Slice(keys, func(i, j int) bool {
-		return unique[keys[i]] > unique[keys[j]]
+		// return unique[keys[i]] > unique[keys[j]]
+		return i < j
+
 	})
 
 	fmt.Println(unique)

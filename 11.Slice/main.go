@@ -59,11 +59,20 @@ func main() {
 	fmt.Println("Original array: ", x)
 	reverse(x)
 	fmt.Println("After sorting: ", x)
+	modify(x)
+	fmt.Println("After modifying: ", x) //this will modify original array
 }
 
 func reverse(x []int) {
 	for a, b := 0, len(x)-1; a < b; a, b = a+1, b-1 {
 		x[a], x[b] = x[b], x[a]
 	}
+	x = append(x, 99) // won't modify original array
 	// x = []int{9, 7, 6, 5, 4}   //will not modify actual x
+}
+
+func modify(x []int) {
+	for i := 0; i < len(x); i++ {
+		x[i] = x[i] * 2
+	}
 }
