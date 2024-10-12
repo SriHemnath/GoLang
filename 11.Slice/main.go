@@ -5,6 +5,11 @@ import (
 	"reflect"
 )
 
+/*
+append works different with different data types.
+For ex. string is always doubled when exceeded capacity.
+[]int capacity is increased based on the number of elements added
+*/
 func main() {
 
 	//CREATING SLICE
@@ -13,16 +18,23 @@ func main() {
 	var strSlice []string
 
 	fmt.Println(reflect.ValueOf(intSlice))
-	fmt.Println(reflect.ValueOf(strSlice).Type())
-	fmt.Println(reflect.ValueOf(strSlice).Kind())
+	fmt.Println(reflect.ValueOf(strSlice).Type()) //print []string
+	fmt.Println(reflect.ValueOf(strSlice).Kind()) //print slice
+
+	fmt.Println(intSlice) //print empty slice
+	intSlice = append(intSlice, 12)
+	fmt.Println(intSlice, len(intSlice), cap(intSlice))
 
 	//2.UING MAKE KEYWORD
-	var iSlice = make([]int, 10)        // when length and capacity is same
-	var sSlice = make([]string, 10, 20) // when length and capacity is different
-
+	var iSlice = make([]int, 0, 3)     // when length and capacity is same
+	var sSlice = make([]string, 0, 20) // when length and capacity is different
+	iSlice = append(iSlice, 1, 2, 3)
 	fmt.Printf("intSlice \tLen: %v \tCap: %v\n", len(iSlice), cap(iSlice))
 	fmt.Printf("strSlice \tLen: %v \tCap: %v\n", len(sSlice), cap(sSlice))
 	fmt.Println(sSlice)
+
+	iSlice = append(iSlice, 4, 5, 6, 7, 8, 9)
+	fmt.Printf("intSlice \tLen: %v \tCap: %v\n", len(iSlice), cap(iSlice))
 
 	//3.UING SLICE LITERAL
 	//var intSlice = []int{10, 20, 30, 40}
